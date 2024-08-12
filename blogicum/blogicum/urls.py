@@ -18,8 +18,17 @@ from django.urls import include, path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include(('blog.urls', 'blog'), namespace='blog_main')),
-    path('posts/', include(('blog.urls', 'blog'), namespace='blog_posts')),
-    path('category/', include(('blog.urls', 'blog'), namespace='blog_category')),
+    path(
+        '', include(('blog.urls', 'blog'), 
+        namespace='blog_main')
+        ),
+    path(
+        'posts/', include(('blog.urls', 'blog'), 
+        namespace='blog_posts')
+        ),
+    path(
+        'category/', include(('blog.urls', 'blog'), 
+        namespace='blog_category')
+        ),
     path('pages/', include('pages.urls')),
 ]

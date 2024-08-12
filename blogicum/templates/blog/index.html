@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Лента записей{% endblock %}
+{% block content %}
+  <h1>Лента записей</h1>
+  <ul>
+    {% for post in posts %}
+      <li>
+        <h2>{{ post.location }}</h2>
+        <p>{{ post.text }}</p>
+        <p>Posted on {{ post.date }} in {{ post.category }}</p>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

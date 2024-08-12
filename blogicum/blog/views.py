@@ -58,7 +58,7 @@ def index(request):
 def post_detail(request, post_id):
     template_name = 'blog/detail.html'
     if post_id not in main_posts:
-        raise Http404('Страница не найдена!')
+        raise Http404(f'Публикация с ID {post_id} не найдена!')
     context = {'post': main_posts[post_id]}
     return render(request, template_name, context)
 

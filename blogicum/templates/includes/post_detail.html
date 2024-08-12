@@ -1,43 +1,13 @@
-{% with request.resolver_match.view_name as view_name %}
-{% if view_name == "blog:index" %}
-  <h1>Лента записей</h1>                        
-  {% for post in posts %}
-  <hr>
-  <article>
-    <ul>
-      <li>
-        {{ post.location }}
-      </li>
-      <li>
-        {{ post.date }}
-      </li>
-      <li>
-        Категория: <a href="{% url 'blog:category_posts' post.category %}">{{ post.category }}</a>
-      </li>
-    </ul>          
-    <p>
-      {{ post.text|truncatewords:10 }}
-    </p>
-    <a href="{% url 'blog:post_detail' post.id %}">Читать полный текст</a>
-  </article>
-  {% endfor %}
-{% endif %}
-{% if view_name == "blog:post_detail" %}
-  <article>
-    <ul>
-      <li>
-        Место: {{ post.location }}
-      </li>
-        <li>
-          Дата: {{ post.date }}
-        </li>
-        <li>
-          Категория: <a href="{% url 'blog:category_posts' post.category %}">{{ post.category }}</a>
-        </li>
-      </ul>
-      <p>
-        {{ post.text|linebreaksbr }}
-      </p>
-  </article>
-{% endif %}
-{% endwith %}
+<h2>{{ post.location }}</h2>
+<p>{{ post.text }}</p>
+<p>Posted on {{ post.date }} in {{ post.category }}</p>
+<table>
+  <tr>
+    <th>Column 1</th>
+    <th>Column 2</th>
+  </tr>
+  <tr>
+    <td>{{ post.column1_data }}</td>
+    <td>{{ post.column2_data }}</td>
+  </tr>
+</table>

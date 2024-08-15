@@ -9,19 +9,8 @@
   <ul>
     {% for post in posts|dictsortreversed:"id" %}
       <li>
-        <h2>{{ post.location }}</h2>
-        <p>{{ post.text }}</p>
-        <p>Posted on {{ post.date }} in {{ post.category }}</p>
-        <table>
-          <tr>
-            <th>Column 1</th>
-            <th>Column 2</th>
-          </tr>
-          <tr>
-            <td>{{ post.column1_data }}</td>
-            <td>{{ post.column2_data }}</td>
-          </tr>
-        </table>
+        {% include "includes/post_detail.html" with post=post %}
+        <hr>
       </li>
     {% endfor %}
   </ul>

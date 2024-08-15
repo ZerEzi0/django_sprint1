@@ -6,12 +6,8 @@
 
 {% block content %}
   <h1>Лента записей</h1>
-  <ul>
     {% for post in posts|dictsortreversed:"id" %}
-      <li>
-        {% include "includes/post_detail.html" with post=post %}
-        <hr>
-      </li>
+      <hr>
+      {% include "includes/post_detail.html"%}
     {% endfor %}
-  </ul>
 {% endblock %}
